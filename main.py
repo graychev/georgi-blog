@@ -11,9 +11,9 @@ from functools import wraps
 from flask_gravatar import Gravatar
 import os
 
-uri = os.environ.get("DATABASE_URL", "sqlite:///blog.db")
-if uri and uri.startswith("postgres://"):
-    uri = uri.replace("postgres://", "postgresql://", 1)
+# uri = os.environ.get("DATABASE_URL", "sqlite:///blog.db")
+# if uri and uri.startswith("postgres://"):
+#     uri = uri.replace("postgres://", "postgresql://", 1)
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY", "8BYkEfBA6fO6donzbWlSihBsXox7C0sKR6b")
@@ -21,7 +21,7 @@ ckeditor = CKEditor(app)
 Bootstrap(app)
 
 ##CONNECT TO DB
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(uri, "sqlite:///blog.db")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///blog.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
