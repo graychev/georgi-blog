@@ -10,7 +10,6 @@ from forms import CreatePostForm, FlaskForm, StringField, SubmitField, PasswordF
 from functools import wraps
 from flask_gravatar import Gravatar
 import os
-import re
 
 uri = os.environ.get("DATABASE_URL", "sqlite:///blog.db")
 if uri and uri.startswith("postgres://"):
